@@ -1,0 +1,73 @@
+<div class="container pb-3">
+  <div class="row">
+    <div class="col text-uppercase text-center">
+      <h1>Contacto</h1>
+      <small>Medios de contacto y otras redes sociales</small>
+    </div>
+  </div>
+  <div class="m-0 row justify-content-center">
+    <div class="row justify-content-between mt-4 mx-4" style="width: 60%;">
+      <div class="col-6 col-lg-2">
+        <a href="https://www.linkedin.com/in/christian-aguilar05/" target="_blank" class="icon-contact">
+          <img src="https://img.icons8.com/ios-glyphs/60/000000/linkedin.png" class="icon"/>
+          <p>LinkedIn</p>
+        </a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <a href="https://github.com/christian-aguilar1" target="_blank" class="icon-contact">
+          <img src="https://img.icons8.com/material-outlined/48/000000/github.png" class="icon"/>
+          <p>Github</p>
+        </a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <a href="https://platzi.com/p/christian-aguilar/" target="_blank" class="icon-contact">
+          <img src="assets/platzi-icon.png" style="width: 56px; height: 64px;"/>
+          <p>Platzi</p>
+        </a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <a href="https://mobile.twitter.com/chr_aguilar" target="_blank" class="icon-contact">
+          <img src="https://img.icons8.com/ios-glyphs/60/000000/twitter--v1.png" class="icon"/>
+          <p>Twitter</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="conviertete-en-orador" class="pt-3 pb-3 mb-3">
+  <div class="container">
+      <div class="row">
+          <div class="col text-uppercase text-center">
+              <small>Contáctame</small>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col text-center">
+              Mi correo es
+              <a href="mailto:christianaguilarm1@gmail.com">christianaguilarm1@gmail.com</a>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-2">
+            <form [formGroup]="form" (ngSubmit)="sendEmail($event)">
+                  <div class="form row">
+                      <div class="mb-3 col-12">
+                          <input type="email" formControlName="email" class="form-control" placeholder="Email" required>
+                      </div>
+                  </div>
+                  <div class="form row">
+                      <div class="mb-3 col">
+                          <textarea formControlName="message" class="form-control form-control-lg" placeholder="Mensaje"></textarea>
+                      </div>
+                  </div>
+                  <div class="form row">
+                      <div class="col">
+                        <button [disabled]="form.invalid" type="submit" class="btn btn-success w-100">Enviar</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>

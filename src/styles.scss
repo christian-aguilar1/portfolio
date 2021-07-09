@@ -16,4 +16,9 @@ $my-theme: mat.define-light-theme((
 @include mat.all-component-themes($my-theme);
 
 html { min-height: 100%; position: relative; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background-image: linear-gradient(0, #5674c2 0, #1f3259 50%, #000000 100%);
+  margin: 0;
+  margin-bottom: 68px;
+  font-family: monospace !important;
+}

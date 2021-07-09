@@ -1,5 +1,9 @@
+h1, small, p, .email {
+  color: rgb(220, 223, 236);
+}
+
 .icon-contact {
-  color: rgb(31, 31, 31);
+  color: rgb(170, 179, 230);
   text-decoration: none;
 }
 
@@ -8,10 +12,18 @@
 }
 
 .icon-contact:hover {
-  color: black;
+  color: rgb(204, 208, 228);
 }
 
 .icon {
   height: 64px;
   width: 64px;
+}
+
+.btn-blue {
+  background-color: rgb(27, 41, 167);
+  color: white;
+}
+.btn-blue:hover {
+  background-color: rgb(27, 32, 80);
 }

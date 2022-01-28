@@ -3,16 +3,26 @@ h1, small, p, .email {
 }
 
 .icon-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   color: rgb(170, 179, 230);
   text-decoration: none;
 }
 
 .icon-contact p {
-  padding-left: 10px;
+  text-align: center;
 }
 
 .icon-contact:hover {
   color: rgb(204, 208, 228);
+}
+
+.platzi img {
+  height: 60px;
+  margin-bottom: 4px;
+  width: 56px;
 }
 
 .icon {

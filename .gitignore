@@ -90,4 +90,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# environments
+environments
+environments.ts
+
+
 # End of https://www.toptal.com/developers/gitignore/api/angular,visualstudiocode,windows,linux

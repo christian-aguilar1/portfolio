@@ -7,25 +7,25 @@
   </div>
   <div class="m-0 row justify-content-center">
     <div class="row justify-content-between mt-4 mx-4" style="width: 60%;">
-      <div class="col-6 col-lg-2">
+      <div class="col">
         <a href="https://www.linkedin.com/in/christian-aguilar05/" target="_blank" class="icon-contact">
           <img src="https://img.icons8.com/ios-glyphs/60/000000/linkedin.png" class="icon"/>
           <p>LinkedIn</p>
         </a>
       </div>
-      <div class="col-6 col-lg-2">
+      <div class="col">
         <a href="https://github.com/christian-aguilar1" target="_blank" class="icon-contact">
           <img src="https://img.icons8.com/material-outlined/48/000000/github.png" class="icon"/>
           <p>Github</p>
         </a>
       </div>
-      <div class="col-6 col-lg-2">
-        <a href="https://platzi.com/p/christian-aguilar/" target="_blank" class="icon-contact">
-          <img src="assets/platzi-icon.png" style="width: 56px; height: 60px; margin-bottom: 4px;"/>
+      <div class="col">
+        <a href="https://platzi.com/p/christian-aguilar/" target="_blank" class="icon-contact platzi">
+          <img src="assets/platzi-icon.png"/>
           <p>Platzi</p>
         </a>
       </div>
-      <div class="col-6 col-lg-2">
+      <div class="col">
         <a href="https://mobile.twitter.com/chr_aguilar" target="_blank" class="icon-contact">
           <img src="https://img.icons8.com/ios-glyphs/60/000000/twitter--v1.png" class="icon"/>
           <p>Twitter</p>
@@ -50,20 +50,42 @@
       </div>
       <div class="row">
           <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-2">
-            <form [formGroup]="form" (ngSubmit)="sendEmail($event)">
-                  <div class="form row">
-                      <div class="mb-3 col-12">
-                          <input type="email" formControlName="email" class="form-control" placeholder="Email" required>
+            <form [formGroup]="form" (ngSubmit)="sendEmail($event)" novalidate class="needs-validation">
+                  <div class="form-group row">
+                      <div class="mb-3 col-12 position-relative">
+                        <input type="email" formControlName="email" class="form-control" placeholder="Email"/>
+                        <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">El email es obligatorio</div>
+                          <div *ngIf="f.email.errors.email">Por favor, ingresa un Email correcto</div>
+                        </div> -->
+                        <div *ngIf="f.email.errors?.required" class="invalid-feedback">
+                          El correo es necesario
+                        </div>
                       </div>
                   </div>
-                  <div class="form row">
+                  <div class="form-group row">
                       <div class="mb-3 col">
                           <textarea formControlName="message" class="form-control form-control-lg" placeholder="Mensaje"></textarea>
+                          <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                            <div *ngIf="f.message.errors.required">Por favor, ingresa un Mensaje.</div>
+                          </div>
                       </div>
                   </div>
-                  <div class="form row">
+                  <div class="row">
                       <div class="col">
-                        <button [disabled]="form.invalid" type="submit" class="btn btn-blue w-100">Enviar</button>
+                        <button type="submit" class="btn btn-blue w-100">
+                          <div *ngIf="!submitted && !isLoading">
+                            Enviar
+                          </div>
+                          <div *ngIf="submitted && isLoading">
+                              <span class="spinner-border spinner-border-sm mr-2"></span>
+                              Enviando datos...
+                          </div>
+                          <div *ngIf="submitted && !isLoading">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                            Enviado!
+                          </div>
+                        </button>
                       </div>
                   </div>
               </form>

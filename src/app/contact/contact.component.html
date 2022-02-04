@@ -37,59 +37,70 @@
 
 <section id="conviertete-en-orador" class="pt-3 pb-3 mb-3">
   <div class="container">
-      <div class="row">
-          <div class="col text-uppercase text-center">
-              <small>Contáctame</small>
-          </div>
+    <div class="row">
+      <div class="col text-uppercase text-center">
+        <small>Contáctame</small>
       </div>
-      <div class="row">
-          <div class="col text-center email">
-              Mi correo es
-              <a href="mailto:christianaguilarm1@gmail.com">christianaguilarm1@gmail.com</a>
-          </div>
+    </div>
+    <div class="row">
+      <div class="col text-center email">
+        Mi correo es
+        <a href="mailto:christianaguilarm1@gmail.com">christianaguilarm1@gmail.com</a>
       </div>
+    </div>
       <div class="row">
-          <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-2">
-            <form [formGroup]="form" (ngSubmit)="sendEmail($event)" novalidate class="needs-validation">
-                  <div class="form-group row">
-                      <div class="mb-3 col-12 position-relative">
-                        <input type="email" formControlName="email" class="form-control" placeholder="Email"/>
-                        <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                          <div *ngIf="f.email.errors.required">El email es obligatorio</div>
-                          <div *ngIf="f.email.errors.email">Por favor, ingresa un Email correcto</div>
-                        </div> -->
-                        <div *ngIf="f.email.errors?.required" class="invalid-feedback">
-                          El correo es necesario
-                        </div>
+        <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-2">
+          <form [formGroup]="form" (ngSubmit)="sendEmail($event)" class="needs-validation" novalidate>
+            <div class="form-group row">
+              <div class="mb-3 col-12 position-relative has-validation">
+                <input type="name" formControlName="name" class="form-control" placeholder="Nombre y apellido" [ngClass]="{ 'is-invalid': clicked && f.name.errors}"/>
+                <div *ngIf="clicked && f.name.errors" class="invalid-feedback">
+                  <div *ngIf="f.name.errors.required">El nombre y apellido es obligatorio</div>
+                  <div *ngIf="f.name.errors.minlength">Por favor, ingresa tu nombre y apellido</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="mb-3 col-12 position-relative has-validation">
+                <input type="email" formControlName="email" class="form-control" placeholder="Email" [ngClass]="{ 'is-invalid': clicked && f.email.errors}"/>
+                <div *ngIf="clicked && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">El email es obligatorio</div>
+                  <div *ngIf="f.email.errors.email">Por favor, ingresa un Email correcto</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="mb-3 col has-validation">
+                <textarea formControlName="message" class="form-control form-control-lg" placeholder="Mensaje" [ngClass]="{ 'is-invalid': clicked && f.message.errors}"></textarea>
+                <div *ngIf="clicked && f.message.errors" class="invalid-feedback">
+                  <div *ngIf="f.message.errors.required">Por favor, ingresa un Mensaje</div>
+                  <div *ngIf="f.message.errors.minlength">El mensaje tiene que ser de mínimo 10 caracteres</div>
+                </div>
+              </div>
+            </div>
+              <div class="row">
+                <div class="col">
+                  <button type="submit" class="btn btn-blue w-100">
+                    <div *ngIf="!submitted && !isLoading">
+                      Enviar
+                    </div>
+                    <div *ngIf="submitted && isLoading">
+                        <span class="spinner-border spinner-border-sm mr-2"></span>
+                        Enviando datos...
+                    </div>
+                    <div *ngIf="submitted && !isLoading" class="container-success">
+                      <div>
+                        <img src="assets/check.png" alt="success" class="icon-check">
                       </div>
-                  </div>
-                  <div class="form-group row">
-                      <div class="mb-3 col">
-                          <textarea formControlName="message" class="form-control form-control-lg" placeholder="Mensaje"></textarea>
-                          <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
-                            <div *ngIf="f.message.errors.required">Por favor, ingresa un Mensaje.</div>
-                          </div>
+                      <div>
+                        Enviado!
                       </div>
-                  </div>
-                  <div class="row">
-                      <div class="col">
-                        <button type="submit" class="btn btn-blue w-100">
-                          <div *ngIf="!submitted && !isLoading">
-                            Enviar
-                          </div>
-                          <div *ngIf="submitted && isLoading">
-                              <span class="spinner-border spinner-border-sm mr-2"></span>
-                              Enviando datos...
-                          </div>
-                          <div *ngIf="submitted && !isLoading">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                            Enviado!
-                          </div>
-                        </button>
-                      </div>
-                  </div>
-              </form>
-          </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </form>
+        </div>
       </div>
   </div>
 </section>
